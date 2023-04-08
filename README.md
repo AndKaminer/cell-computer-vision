@@ -1,2 +1,2 @@
-# FIDA - FIji Deformation Analysis
-A FIJI plugin to analyze cell deformation
+# openCIP - Open Source Cell Image Processin
+Image processing for tracking cells
