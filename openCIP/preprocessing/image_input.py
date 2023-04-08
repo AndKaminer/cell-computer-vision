@@ -45,7 +45,8 @@ def preprocess_video(filename: str):
 
 def preprocess_image(img: np.array) -> np.array:
     '''
-    Takes an image of the video from preprocess_video and does some sort of preprocessing on it.
+    Takes an image of the video from preprocess_video and does some sort of
+    preprocessing on it.
     Parameters:
         img: np.array - The image to be processed
     Returns:
