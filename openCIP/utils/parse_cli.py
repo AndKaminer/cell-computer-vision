@@ -1,6 +1,8 @@
 '''File with functions to parse cli args'''
 
 
+import os
+
 from .help_message import print_help_message
 
 
@@ -27,6 +29,8 @@ def parse_cli_input(argv):
     assert idx != -1
     assert len(argv) > idx + 1
     filename = argv[idx + 1]
+
+    assert os.path.isfile(filename)
 
     if "-g" in argv:
         argv.remove("-g")
