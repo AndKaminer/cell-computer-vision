@@ -4,16 +4,17 @@ import cv2 as cv
 import numpy as np
 
 
-def preprocess_video(filename: str):
+def preprocess_video(filename: str, intermediate_dir: str):
     '''
     Preprocesses the video and writes the new, preprocessed, video to a file.
     Parameters:
         filename: str - The filename of the video to be preprocessed
+        intermediate_dir: str - String with the intermediate files directory
     Returns:
         NEW_FILENAME: str - The filename of the new, preprocessed, video.
     '''
 
-    NEW_FILENAME = "preprocessed.mp4"
+    NEW_FILENAME = intermediate_dir + "preprocessed.mp4"
     VIDEO_CODEC = "MP4V"
 
     video = cv.VideoCapture(filename)
