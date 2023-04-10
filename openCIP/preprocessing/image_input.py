@@ -3,6 +3,8 @@
 import cv2 as cv
 import numpy as np
 
+import utils.preprocess_choice as preprocess_choice
+
 
 def preprocess_video(filename: str, intermediate_dir: str):
     '''
@@ -30,13 +32,15 @@ def preprocess_video(filename: str, intermediate_dir: str):
 
     framecount = int(video.get(cv.cv2.CAP_PROP_FRAME_COUNT))
 
+    choice = preprocess_choice()
+
     for frame in range(framecount):
         ret, img = video.read()
 
         if not ret:
             break
 
-        img = preprocess_image(img)
+        img = preprocess_image(img, choice)
         out.write(img)
 
     video.release()
@@ -44,7 +48,7 @@ def preprocess_video(filename: str, intermediate_dir: str):
     return NEW_FILENAME
 
 
-def preprocess_image(img: np.array) -> np.array:
+def preprocess_image(img: np.array, choice: int) -> np.array:
     '''
     Takes an image of the video from preprocess_video and does some sort of
     preprocessing on it.
