@@ -10,7 +10,7 @@ from config import Config
 
 
 def main(filename, other):
-    Config.working_directory = os.pwd()
+    Config.working_directory = os.getcwd()
     Config.intermediate_dir = (
             f"{os.path.basename(__file__)}/intermediate_files")
 
