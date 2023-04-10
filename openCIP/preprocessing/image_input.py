@@ -4,9 +4,10 @@ import cv2 as cv
 import numpy as np
 
 import utils.preprocess_choice as preprocess_choice
+from config import Config
 
 
-def preprocess_video(filename: str, intermediate_dir: str):
+def preprocess_video(filename: str):
     '''
     Preprocesses the video and writes the new, preprocessed, video to a file.
     Parameters:
@@ -16,25 +17,24 @@ def preprocess_video(filename: str, intermediate_dir: str):
         NEW_FILENAME: str - The filename of the new, preprocessed, video.
     '''
 
-    NEW_FILENAME = intermediate_dir + "preprocessed.mp4"
+    NEW_FILENAME = Config.intermediate_dir + "preprocessed.mp4"
     VIDEO_CODEC = "MP4V"
 
     video = cv.VideoCapture(filename)
-    fps = video.get(cv.cv2.CAP_PROP_FPS)
-    width = video.get(cv.cv2.CAP_PROP_WIDTH)
-    height = video.get(cv.cv2.CAP_PROP_HEIGHT)
+    Config.fps = video.get(cv.cv2.CAP_PROP_FPS)
+    Config.width = video.get(cv.cv2.CAP_PROP_WIDTH)
+    Config.height = video.get(cv.cv2.CAP_PROP_HEIGHT)
+    Config.framecount = int(video.get(cv.cv2.CAP_PROP_FRAME_COUNT))
 
     out = cv.VideoWriter(NEW_FILENAME,
                          cv.VideoWriter_fourcc(*VIDEO_CODEC),
-                         fps,
-                         (width, height)
+                         Config.fps,
+                         (Config.width, Config.height)
                          )
-
-    framecount = int(video.get(cv.cv2.CAP_PROP_FRAME_COUNT))
 
     choice = preprocess_choice()
 
-    for frame in range(framecount):
+    for frame in range(Config.framecount):
         ret, img = video.read()
 
         if not ret:

@@ -6,15 +6,16 @@ import logging
 
 from utils import parse_cli_input
 from preprocessing import preprocess_video
+from config import Config
 
 
-def main(GUI, filename, other):
-    working_dir = os.pwd()
-    intermediate_dir = os.path.basename(__file__) + "/intermediate_files"
+def main(filename, other):
+    Config.working_directory = os.pwd()
+    Config.intermediate_dir = (
+            f"{os.path.basename(__file__)}/intermediate_files")
 
-    preprocessed_file_name: str = preprocess_video(filename, intermediate_dir)
+    preprocessed_file_name: str = preprocess_video(filename)
     print(preprocessed_file_name)
-    print(working_dir)
 
 
 if __name__ == '__main__':
@@ -36,4 +37,6 @@ if __name__ == '__main__':
 
     logging.info("Successfully parsed command line arguments")
 
-    main(GUI, filename, other)
+    Config.GUI = GUI
+
+    main(filename, other)
