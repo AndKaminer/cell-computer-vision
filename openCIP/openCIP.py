@@ -21,8 +21,8 @@ def main(filename, other):
 if __name__ == '__main__':
 
     logging.basicConfig(
-            level=logging.INFO,
-            format="%(asctime)s %(levelname)s %(message)s"
+            level=Config.logging_level,
+            format=Config.logging_format
     )
 
     try:

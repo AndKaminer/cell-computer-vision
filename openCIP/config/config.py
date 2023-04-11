@@ -3,6 +3,7 @@ Class containing configuration settings and video information for openCIP
 '''
 
 import os
+import logging
 
 
 class Config:
@@ -15,3 +16,5 @@ class Config:
     working_directory = os.getcwd()
     intermediate_dir = os.getcwd()
     framecount = 0
+    logging_level = logging.INFO
+    logging_format = "%(asctime)s %(levelname)s %(message)s"
