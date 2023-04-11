@@ -4,6 +4,9 @@ import cv2 as cv
 import numpy as np
 
 import utils.preprocess_choice as preprocess_choice
+import utils.choose_brightness as choose_brightness
+import utils.choose_contrast as choose_contrast
+import utils.confirm_and_preview as confirm_and_preview
 from config import Config
 
 
@@ -32,7 +35,20 @@ def preprocess_video(filename: str):
                          (Config.width, Config.height)
                          )
 
-    choice = preprocess_choice()
+    redo = True
+    while redo:
+        choice: int = preprocess_choice()
+        amount: int = 0
+        if choice == 6:
+            amount = choose_brightness(True)
+        elif choice == 7:
+            amount = choose_brightness(False)
+        elif choice == 8:
+            amount = choose_contrast(True)
+        elif choice == 9:
+            amount = choose_contrast(False)
+
+        redo = confirm_and_preview()
 
     for frame in range(Config.framecount):
         ret, img = video.read()
@@ -40,7 +56,7 @@ def preprocess_video(filename: str):
         if not ret:
             break
 
-        img = preprocess_image(img, choice)
+        img = preprocess_image(img, choice, amount)
         out.write(img)
 
     video.release()

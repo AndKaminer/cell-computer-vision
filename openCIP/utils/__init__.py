@@ -4,3 +4,6 @@ from .preprocess_choice import preprocess_choice
 from .preview_image import preview_image
 from .preprocess_choice import preprocess_choice_CLI
 from .preprocess_choice import preprocess_choice_GUI
+from .confirm_and_preview import confirm_and_preview
+from .choose_contrast_brightness import choose_brightness
+from .choose_contrast_brightness import choose_contrast
