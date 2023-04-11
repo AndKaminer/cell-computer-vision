@@ -29,6 +29,9 @@ def preprocess_choice_CLI() -> int:
     Provides an interface for choosing and previewing different preprocessing
     types in CLI mode.
     '''
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+
     choice: float = -1.0
     optionheight = 12
 
