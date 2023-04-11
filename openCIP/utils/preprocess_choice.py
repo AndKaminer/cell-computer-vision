@@ -14,7 +14,7 @@ def preprocess_choice() -> int:
         return preprocess_choice_CLI()
 
 
-def preprocess_choice_GUI():
+def preprocess_choice_GUI() -> int:
     '''
     Provides an interface for choosing and previewing different preprocessing
     types in GUI mode.
@@ -22,7 +22,7 @@ def preprocess_choice_GUI():
     pass
 
 
-def preprocess_choice_CLI():
+def preprocess_choice_CLI() -> int:
     '''
     Provides an interface for choosing and previewing different preprocessing
     types in CLI mode.
