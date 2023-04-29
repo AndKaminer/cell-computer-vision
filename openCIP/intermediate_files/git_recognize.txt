@@ -1,1 +1,0 @@
-This directory is for intermediate video files created by the tool. This file exists to make git recognize it.
