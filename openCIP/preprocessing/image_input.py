@@ -3,10 +3,10 @@
 import cv2 as cv
 import numpy as np
 
-import utils.preprocess_choice as preprocess_choice
-import utils.choose_brightness as choose_brightness
-import utils.choose_contrast as choose_contrast
-import utils.confirm_and_preview as confirm_and_preview
+from utils import preprocess_choice
+from utils import choose_brightness
+from utils import choose_contrast
+from utils import confirm_and_preview
 from config import Config
 
 
