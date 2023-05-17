@@ -1,2 +1,2 @@
-# openCIP - Open Source Cell Image Processin
+# openCIP - Open Source Cell Image Processing
 Image processing for tracking cells
